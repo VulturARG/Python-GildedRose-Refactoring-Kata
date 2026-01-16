@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from typing import Callable
 
 from domain.dtos.item import Item
 from domain.enums.ItemName import ItemName
 
 from domain.update_quality.generic_behavior import GenericBehavior
+from domain.update_quality.item_behavior import ItemBehavior
 from domain.update_quality.legacy_behavior import LegacyBehavior
 from domain.update_quality.sulfuras_behavior import SulfurasBehavior
 
@@ -19,7 +19,7 @@ class GildedRose:
             items_map.get(item.name, GenericBehavior)().update(item)
 
     @property
-    def _items_map(self) -> dict[ItemName, Callable]:
+    def _items_map(self) -> dict[str, type[ItemBehavior]]:
         return {
             ItemName.AGED_BRIE: LegacyBehavior,
             ItemName.BACKSTAGE: LegacyBehavior,
