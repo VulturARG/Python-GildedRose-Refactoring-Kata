@@ -1,45 +1,29 @@
 # -*- coding: utf-8 -*-
-from domain.enums.backstage_limit import BackstageLimit
-from domain.enums.quality import Quality
+from typing import Callable
+
+from domain.dtos.item import Item
+from domain.enums.ItemName import ItemName
+
+from domain.update_quality.generic_quality import GenericQuality
+from domain.update_quality.temporal_quality import TemporalQuality
 
 
 class GildedRose:
-    def __init__(self, items):
+    def __init__(self, items: list[Item]):
         self.items = items
 
-    def update_quality(self):
+    def update_quality(self) -> None:
+        items_map = self._items_map
+        generic_quality = GenericQuality()
         for item in self.items:
-            if (
-                item.name != "Aged Brie"
-                and item.name != "Backstage passes to a TAFKAL80ETC concert"
-            ):
-                if item.quality > Quality.MINIMUM:
-                    if item.name != "Sulfuras, Hand of Ragnaros":
-                        item.quality = item.quality - 1
-            else:
-                if item.quality < Quality.MAXIMUM:
-                    item.quality = item.quality + 1
-                    if item.name == "Backstage passes to a TAFKAL80ETC concert":
-                        if item.sell_in <= BackstageLimit.INTERMEDIUM:
-                            if item.quality < Quality.MAXIMUM:
-                                item.quality = item.quality + 1
-                        if item.sell_in <= BackstageLimit.FINAL:
-                            if item.quality < Quality.MAXIMUM:
-                                item.quality = item.quality + 1
+            items_map.get(item.name, generic_quality.update)(item)
 
-            if item.name != "Sulfuras, Hand of Ragnaros":
-                item.sell_in = item.sell_in - 1
-
-            if item.sell_in >= 0:
-                continue
-
-            if item.name != "Aged Brie":
-                if item.name != "Backstage passes to a TAFKAL80ETC concert":
-                    if item.quality > Quality.MINIMUM:
-                        if item.name != "Sulfuras, Hand of Ragnaros":
-                            item.quality = item.quality - 1
-                else:
-                    item.quality = item.quality - item.quality
-            else:
-                if item.quality < Quality.MAXIMUM:
-                    item.quality = item.quality + 1
+    @property
+    def _items_map(self) -> dict[ItemName, Callable]:
+        temporal_quality = TemporalQuality()
+        return {
+            ItemName.AGED_BRIE: temporal_quality.update,
+            ItemName.BACKSTAGE: temporal_quality.update,
+            ItemName.SULFURAS: temporal_quality.update,
+            ItemName.CONJURED: temporal_quality.update,
+        }
