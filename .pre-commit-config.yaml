@@ -1,0 +1,21 @@
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+        stages: [pre-commit]
+      - id: end-of-file-fixer
+        stages: [pre-commit]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      # Ruff linting (reemplaza flake8)
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+        stages: [pre-commit]
+      # Ruff formateo (reemplaza black)
+      - id: ruff-format
+        stages: [pre-commit]
+        

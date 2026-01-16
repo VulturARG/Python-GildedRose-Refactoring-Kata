@@ -1,0 +1,53 @@
+# Configuración de Ruff
+# Ruff reemplaza flake8, isort y black
+
+# Configuración de linting (equivalente a flake8)
+[lint]
+# Seleccionar reglas equivalentes a flake8: B,B9,C,E,F,W
+select = [
+    "B",      # flake8-bugbear
+    "B9",     # flake8-bugbear (extended)
+    "C",      # flake8-comprehensions
+    "E",      # pycodestyle errors
+    "F",      # pyflakes
+    "W",      # pycodestyle warnings
+]
+
+# Ignorar reglas específicas
+ignore = [
+    "B903",   # Data class should either be immutable or use __slots__ to save memory
+    "B907",   # Variable is manually surrounded by quotes, consider using the `!r` conversion flag
+    "B950",   # Line too long (bugbear)
+    "E128",   # Continuation line under-indented for visual indent
+    "E203",   # Whitespace before ':'
+    "E222",   # Multiple spaces after operator
+    "E231",   # Missing whitespace after ',', ';', or ':'
+    "E262",   # Inline comment should start with '# '
+    "E266",   # Too many leading '#' for block comment
+    "E501",   # Line too long (pyflakes)
+    "E741",   # Ambiguous variable name 'l'
+    "W503",   # Line break occurred before a binary operator
+]
+
+# Configuración de línea máxima
+line-length = 100
+
+# Complejidad máxima
+mccabe.max-complexity = 10
+
+# Excluir archivos
+exclude = [
+    "web/pintly/settings/*.py",
+]
+
+# Configuración de ordenamiento de imports
+[lint.isort]
+# Usar perfil compatible con black
+profile = "black"
+# Longitud de línea
+line-length = 100
+
+# Configuración de formateo (equivalente a black)
+[format]
+# Longitud de línea para formateo
+line-length = 100
