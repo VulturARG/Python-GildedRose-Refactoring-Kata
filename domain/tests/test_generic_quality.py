@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from domain.dtos.item import Item
-from domain.update_quality.update_behaviors.generic_behavior import GenericBehavior
+from domain.item_updates.update_behaviors.generic_behavior import GenericBehavior
 
 
 class TestGenericQuality(TestCase):

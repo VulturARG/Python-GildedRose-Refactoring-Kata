@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from unittest import TestCase
 
-from domain.update_quality.gilded_rose import GildedRose
+from domain.item_updates.gilded_rose import GildedRose
 from domain.dtos.item import Item
 
 

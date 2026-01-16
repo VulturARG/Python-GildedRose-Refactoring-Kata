@@ -1,5 +1,5 @@
 from domain.dtos.item import Item
-from domain.update_quality.update_behaviors.item_behavior import ItemBehavior
+from domain.item_updates.update_behaviors.item_behavior import ItemBehavior
 
 
 class SulfurasBehavior(ItemBehavior):
