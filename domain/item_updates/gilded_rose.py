@@ -2,11 +2,12 @@
 
 from domain.dtos.item import Item
 from domain.enums.ItemName import ItemName
+from domain.item_updates.update_behaviors.aged_brie_behavior import AgedBrieBehavior
 
-from domain.update_quality.update_behaviors.generic_behavior import GenericBehavior
-from domain.update_quality.update_behaviors.item_behavior import ItemBehavior
-from domain.update_quality.update_behaviors.legacy_behavior import LegacyBehavior
-from domain.update_quality.update_behaviors.sulfuras_behavior import SulfurasBehavior
+from domain.item_updates.update_behaviors.generic_behavior import GenericBehavior
+from domain.item_updates.update_behaviors.item_behavior import ItemBehavior
+from domain.item_updates.update_behaviors.legacy_behavior import LegacyBehavior
+from domain.item_updates.update_behaviors.sulfuras_behavior import SulfurasBehavior
 
 
 class GildedRose:
@@ -21,7 +22,7 @@ class GildedRose:
     @property
     def _items_map(self) -> dict[str, type[ItemBehavior]]:
         return {
-            ItemName.AGED_BRIE: LegacyBehavior,
+            ItemName.AGED_BRIE: AgedBrieBehavior,
             ItemName.BACKSTAGE: LegacyBehavior,
             ItemName.SULFURAS: SulfurasBehavior,
             ItemName.CONJURED: LegacyBehavior,
