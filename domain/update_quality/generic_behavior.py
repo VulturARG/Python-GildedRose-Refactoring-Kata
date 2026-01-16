@@ -1,8 +1,8 @@
 from domain.dtos.item import Item
-from domain.update_quality.quality import Quality
+from domain.update_quality.item_behavior import ItemBehavior
 
 
-class GenericQuality(Quality):
+class GenericBehavior(ItemBehavior):
     def update(self, item: Item) -> None:
         self._set_sell_in(item=item)
         self._set_quality(item=item)

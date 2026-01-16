@@ -4,8 +4,8 @@ from typing import Callable
 from domain.dtos.item import Item
 from domain.enums.ItemName import ItemName
 
-from domain.update_quality.generic_quality import GenericQuality
-from domain.update_quality.temporal_quality import TemporalQuality
+from domain.update_quality.generic_behavior import GenericBehavior
+from domain.update_quality.legacy_behavior import LegacyBehavior
 
 
 class GildedRose:
@@ -14,13 +14,13 @@ class GildedRose:
 
     def update_quality(self) -> None:
         items_map = self._items_map
-        generic_quality = GenericQuality()
+        generic_quality = GenericBehavior()
         for item in self.items:
             items_map.get(item.name, generic_quality.update)(item)
 
     @property
     def _items_map(self) -> dict[ItemName, Callable]:
-        temporal_quality = TemporalQuality()
+        temporal_quality = LegacyBehavior()
         return {
             ItemName.AGED_BRIE: temporal_quality.update,
             ItemName.BACKSTAGE: temporal_quality.update,

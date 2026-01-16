@@ -1,12 +1,12 @@
 from unittest import TestCase
 
 from domain.dtos.item import Item
-from domain.update_quality.generic_quality import GenericQuality
+from domain.update_quality.generic_behavior import GenericBehavior
 
 
 class TestGenericQuality(TestCase):
     def setUp(self):
-        self.generic_quality = GenericQuality()
+        self.generic_quality = GenericBehavior()
 
     def test_sell_in_decrease_in_each_update(self):
         expected = 9

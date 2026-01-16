@@ -2,10 +2,10 @@ from domain.dtos.item import Item
 from domain.enums.ItemName import ItemName
 from domain.enums.backstage_limit import BackstageLimit
 from domain.enums.quality_limit import QualityLimit
-from domain.update_quality.quality import Quality
+from domain.update_quality.item_behavior import ItemBehavior
 
 
-class TemporalQuality(Quality):
+class LegacyBehavior(ItemBehavior):
     def update(self, item: Item) -> None:
         if item.name != ItemName.AGED_BRIE and item.name != ItemName.BACKSTAGE:
             if item.quality > QualityLimit.MINIMUM:
