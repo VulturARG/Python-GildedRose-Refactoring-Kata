@@ -20,6 +20,7 @@ select = [
 # Ignorar reglas específicas
 ignore = [
     "B903",   # Data class should either be immutable or use __slots__ to save memory
+    "C901",
     "E203",   # Whitespace before ':'
     "E222",   # Multiple spaces after operator
     "E231",   # Missing whitespace after ',', ';', or ':'
