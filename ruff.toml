@@ -35,6 +35,7 @@ mccabe.max-complexity = 10
 # Excluir archivos
 exclude = [
     "web/pintly/settings/*.py",
+    "*.txt",
 ]
 
 # Configuración de ordenamiento de imports
