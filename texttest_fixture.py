@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 
-from gilded_rose import GildedRose
-from item import Item
+from domain.update_quality.gilded_rose import GildedRose
+from domain.dtos.item import Item
 
 
 def main():
