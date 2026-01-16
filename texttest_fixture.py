@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 
-from gilded_rose import *
+from gilded_rose import GildedRose
+from item import Item
 
 
 def main():
@@ -19,6 +20,7 @@ def main():
     ]
     days = 2
     import sys
+
     if len(sys.argv) > 1:
         days = int(sys.argv[1]) + 1
     for day in range(days):
