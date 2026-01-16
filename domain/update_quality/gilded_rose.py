@@ -14,16 +14,14 @@ class GildedRose:
 
     def update_quality(self) -> None:
         items_map = self._items_map
-        generic_quality = GenericBehavior()
         for item in self.items:
-            items_map.get(item.name, generic_quality.update)(item)
+            items_map.get(item.name, GenericBehavior)().update(item)
 
     @property
     def _items_map(self) -> dict[ItemName, Callable]:
-        temporal_quality = LegacyBehavior()
         return {
-            ItemName.AGED_BRIE: temporal_quality.update,
-            ItemName.BACKSTAGE: temporal_quality.update,
-            ItemName.SULFURAS: temporal_quality.update,
-            ItemName.CONJURED: temporal_quality.update,
+            ItemName.AGED_BRIE: LegacyBehavior,
+            ItemName.BACKSTAGE: LegacyBehavior,
+            ItemName.SULFURAS: LegacyBehavior,
+            ItemName.CONJURED: LegacyBehavior,
         }
