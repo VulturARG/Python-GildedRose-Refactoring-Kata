@@ -2,7 +2,7 @@ from domain.dtos.item import Item
 from domain.enums.ItemName import ItemName
 from domain.enums.backstage_limit import BackstageLimit
 from domain.enums.quality_limit import QualityLimit
-from domain.update_quality.item_behavior import ItemBehavior
+from domain.update_quality.update_behaviors.item_behavior import ItemBehavior
 
 
 class LegacyBehavior(ItemBehavior):

@@ -3,10 +3,10 @@
 from domain.dtos.item import Item
 from domain.enums.ItemName import ItemName
 
-from domain.update_quality.generic_behavior import GenericBehavior
-from domain.update_quality.item_behavior import ItemBehavior
-from domain.update_quality.legacy_behavior import LegacyBehavior
-from domain.update_quality.sulfuras_behavior import SulfurasBehavior
+from domain.update_quality.update_behaviors.generic_behavior import GenericBehavior
+from domain.update_quality.update_behaviors.item_behavior import ItemBehavior
+from domain.update_quality.update_behaviors.legacy_behavior import LegacyBehavior
+from domain.update_quality.update_behaviors.sulfuras_behavior import SulfurasBehavior
 
 
 class GildedRose:
