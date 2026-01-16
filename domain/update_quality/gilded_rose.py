@@ -6,6 +6,7 @@ from domain.enums.ItemName import ItemName
 
 from domain.update_quality.generic_behavior import GenericBehavior
 from domain.update_quality.legacy_behavior import LegacyBehavior
+from domain.update_quality.sulfuras_behavior import SulfurasBehavior
 
 
 class GildedRose:
@@ -22,6 +23,6 @@ class GildedRose:
         return {
             ItemName.AGED_BRIE: LegacyBehavior,
             ItemName.BACKSTAGE: LegacyBehavior,
-            ItemName.SULFURAS: LegacyBehavior,
+            ItemName.SULFURAS: SulfurasBehavior,
             ItemName.CONJURED: LegacyBehavior,
         }
