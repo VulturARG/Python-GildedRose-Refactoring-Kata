@@ -41,6 +41,8 @@ You will need to approve the output file which appears under "approved_files" by
 
 ---
 
+---
+
 ### How to set up the pre-commit hooks
 You need to install some python packages (install them in your system python, not in the container):
 
