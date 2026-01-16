@@ -1,4 +1,3 @@
-
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -7,6 +6,7 @@ repos:
         stages: [pre-commit]
       - id: end-of-file-fixer
         stages: [pre-commit]
+        exclude: '\.txt$'
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.14.13
