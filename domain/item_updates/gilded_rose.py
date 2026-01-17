@@ -3,6 +3,7 @@
 from domain.dtos.item import Item
 from domain.enums.ItemName import ItemName
 from domain.item_updates.update_behaviors.aged_brie_behavior import AgedBrieBehavior
+from domain.item_updates.update_behaviors.backstage_behavior import BackstageBehavior
 
 from domain.item_updates.update_behaviors.generic_behavior import GenericBehavior
 from domain.item_updates.update_behaviors.item_behavior import ItemBehavior
@@ -23,7 +24,7 @@ class GildedRose:
     def _items_map(self) -> dict[str, type[ItemBehavior]]:
         return {
             ItemName.AGED_BRIE: AgedBrieBehavior,
-            ItemName.BACKSTAGE: LegacyBehavior,
+            ItemName.BACKSTAGE: BackstageBehavior,
             ItemName.SULFURAS: SulfurasBehavior,
             ItemName.CONJURED: LegacyBehavior,
         }
